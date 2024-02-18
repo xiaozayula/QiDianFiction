@@ -1,6 +1,6 @@
 package com.xiaoyu.exception;
 
-import com.mysql.cj.util.StringUtils;
+import org.springframework.util.StringUtils;
 import com.xiaoyu.pojo.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
