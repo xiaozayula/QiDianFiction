@@ -3,6 +3,7 @@ package com.xiaoyu.controller;
 import com.xiaoyu.pojo.Result;
 import com.xiaoyu.pojo.User;
 import com.xiaoyu.service.UserService;
+import com.xiaoyu.utils.JwtUtil;
 import com.xiaoyu.utils.Md5Util;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -47,7 +53,11 @@ public class UserController {
         //判断密码是否正确
         if(Md5Util.getMD5String(passWord).equals((loginUser.getPassword()))){
             //登陆成功
-            return  Result.success("jwt token令牌..");
+            Map<String,Object> claims=new HashMap<>();
+            claims.put("id",loginUser.getId());
+            claims.put("usename",loginUser.getUsername());
+            String token=JwtUtil.genToken("claims");
+            return  Result.success("token");
         }
         return  Result.error("密码错误");
     }
