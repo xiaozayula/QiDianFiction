@@ -70,4 +70,10 @@ public class UserController {
         User user = userService.findByUserName(username);
         return  Result.success(user);
     }
+    @PutMapping("/updata")
+    public  Result updata(@RequestBody User user){
+        userService.updata(user);
+        return Result.success();
+
+    }
 }
