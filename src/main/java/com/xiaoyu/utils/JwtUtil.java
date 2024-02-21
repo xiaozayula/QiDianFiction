@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class JwtUtil {
 
-    private static final String KEY = "itheima";
+    private static final String KEY = "xiaoyu";
 
     // 接收业务数据,生成token并返回
     public static String genToken(Map<String, Object> claims) {
@@ -18,7 +18,8 @@ public class JwtUtil {
 
     // 接收token,验证token,并返回业务数据
     public static Map<String, Object> parseToken(String token) {
-        return JWT.require(Algorithm.HMAC256(KEY)).build().verify(token).getClaim("claims").asMap();
+        System.out.println("1122");
+        return JWT.require(Algorithm.HMAC256(KEY)).build().verify(token).getClaims().get("claims").asMap();
     }
 
 }

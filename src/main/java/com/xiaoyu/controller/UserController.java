@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public Result register(@Pattern(regexp = "^\\S{5,16}$") String userName,
         @Pattern(regexp = "^\\S{5,16}$") String passWord) {
         if (userName != null && userName.length() <= 16 && userName.length() >= 5 && passWord != null
@@ -44,7 +44,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public Result<String> login(@Pattern(regexp = "^\\S{5,16}$") String userName,
         @Pattern(regexp = "^\\S{5,16}$") String passWord) {
         // 根据用户名查询用户
@@ -59,14 +59,14 @@ public class UserController {
             Map<String, Object> claims = new HashMap<>();
             claims.put("id", loginUser.getId());
             claims.put("usename", loginUser.getUsername());
-            String token = JwtUtil.genToken("claims");
-            return Result.success("token");
+            String token = JwtUtil.genToken(claims);
+            return Result.success(token);
         }
         return Result.error("密码错误");
     }
 
     @GetMapping("/userInfo")
-    public Result<User> useInfo(@RequestHeader(name = "Autorization") String token) {
+    public Result<User> useInfo(@RequestHeader(name = "Authorization") String token) {
         // 根据用户名查询用户
         // Map<String, Object> map = JwtUtil.parseToken(token);
         // String username = (String)map.get("username");
@@ -76,7 +76,7 @@ public class UserController {
         return Result.success(user);
     }
 
-    @PutMapping("/updata")
+    @PutMapping("/update")
     public Result updata(@RequestBody User user) {
         userService.updata(user);
         return Result.success();

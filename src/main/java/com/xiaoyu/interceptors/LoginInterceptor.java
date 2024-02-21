@@ -22,10 +22,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
         throws Exception {
         // 令牌验证
-        String token = request.getHeader("Authorizatiion");
+        String token = request.getHeader("Authorization");
         // 验证token
         try {
             Map<String, Object> claims = JwtUtil.parseToken(token);
+            System.out.println("222");
             // 把业务数据存储到ThreadLocal
             ThreadLocalUtil.set(claims);
             // 放行

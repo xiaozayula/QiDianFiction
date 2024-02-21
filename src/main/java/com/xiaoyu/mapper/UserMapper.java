@@ -13,9 +13,9 @@ public interface UserMapper {
     User findByUserName(String userName);
 
     // 添加
-    @Insert("insert into (username,password,creat_time,updata_time)" + " values(#{username},#{password},now(),now())")
+    @Insert("insert into user(username,password,create_time,update_time) values(#{username},#{password},now(),now())")
     void add(String username, String password);
 
-    @Update("update  user set nickname=#{nickname},email=#{emial},update_time=#{updataTime},where id=#{id}")
-    void updata(User user);
+    @Update("update  user set nickname=#{nickname},email=#{email},update_time=now() where id=#{id}")
+    void update(User user);
 }
