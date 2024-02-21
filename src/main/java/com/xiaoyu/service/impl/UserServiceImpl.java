@@ -13,17 +13,19 @@ import java.time.LocalDateTime;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+
     @Override
-    public User findByUserName(String userName){
-        User u=userMapper.findByUserName(userName);
-        return  u;
+    public User findByUserName(String userName) {
+        User u = userMapper.findByUserName(userName);
+        return u;
     }
+
     @Override
-    public void  register(String username,String password){
-        //加密
-        String md5String=Md5Util.getMD5String(password);
-        //添加
-        userMapper.add(username,md5String);
+    public void register(String username, String password) {
+        // 加密
+        String md5String = Md5Util.getMD5String(password);
+        // 添加
+        userMapper.add(username, md5String);
     }
 
     @Override

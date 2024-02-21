@@ -19,26 +19,28 @@ import java.util.Map;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //令牌验证
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+        throws Exception {
+        // 令牌验证
         String token = request.getHeader("Authorizatiion");
-        //验证token
+        // 验证token
         try {
             Map<String, Object> claims = JwtUtil.parseToken(token);
-            //把业务数据存储到ThreadLocal
+            // 把业务数据存储到ThreadLocal
             ThreadLocalUtil.set(claims);
-            //放行
+            // 放行
             return true;
         } catch (Exception e) {
-            //http 响应状态码为401
+            // http 响应状态码为401
             response.setStatus(401);
-            return  false;
+            return false;
         }
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        //清空threadlocal数据
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+        throws Exception {
+        // 清空threadlocal数据
         ThreadLocalUtil.remove();;
     }
 }

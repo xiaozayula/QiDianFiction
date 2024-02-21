@@ -1,4 +1,3 @@
 package test;
 
-public class testdemo {
-}
+public class testdemo {}

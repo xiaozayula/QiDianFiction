@@ -22,17 +22,17 @@ import java.util.Map;
 public class ArticleController {
     @GetMapping("list")
     public Result<String> list(
-            //@RequestHeader(name = "Authorization") String token,HttpServletResponse responsee
-    ){
-//        //验证token
-//        try {
-//            Map<String, Object> claims = JwtUtil.parseToken(token);
-          return Result.success("所以的文章数据...");
-//        } catch (Exception e) {
-//            //http 响应状态码为401
-//            response.setStatus(401);
-//            return  Result.error("未登录");
-//        }
+    // @RequestHeader(name = "Authorization") String token,HttpServletResponse responsee
+    ) {
+        // //验证token
+        // try {
+        // Map<String, Object> claims = JwtUtil.parseToken(token);
+        return Result.success("所以的文章数据...");
+        // } catch (Exception e) {
+        // //http 响应状态码为401
+        // response.setStatus(401);
+        // return Result.error("未登录");
+        // }
 
     }
 }
