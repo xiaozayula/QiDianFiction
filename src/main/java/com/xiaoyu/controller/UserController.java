@@ -112,6 +112,7 @@ public class UserController {
 
         //2.调用service完成密码更新
         userService.updatePwd(newPwd);
+        return  Result.success();
     }
 
 }
