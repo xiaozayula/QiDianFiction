@@ -19,7 +19,7 @@ public class User {
     private String password;// 密码
 
     @NotEmpty
-    @Pattern("regexp=^\\S{1,10}$")
+    @Pattern(regexp="^\\S{1,10}$")
     private String nickname;// 昵称
     @NotEmpty
     @Email

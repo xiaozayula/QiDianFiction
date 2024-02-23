@@ -10,5 +10,8 @@ public interface UserService {
     void register(String userName, String passWord);
 
     // 更新
-    void updata(User user);
+    void update(User user);
+
+    //更新头像
+    void updateAvatar(String avatarUrl);
 }
