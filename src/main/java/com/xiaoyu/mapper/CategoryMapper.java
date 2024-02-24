@@ -22,6 +22,10 @@ public interface CategoryMapper  {
     void add(Category category);
 
     //查询所有
-    @Select("select  *from category where creat_user=#{userId}")
+    @Select("select*from category where craet_user=#{userId} ")
     List<Category> list(Integer userId);
+
+    //根据id查询
+    @Select("select *from Category where id=#{id}")
+    Category findById(Integer id);
 }
