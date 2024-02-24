@@ -5,10 +5,9 @@ import com.xiaoyu.pojo.Result;
 import com.xiaoyu.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,5 +25,11 @@ public class CategoryController {
     public Result add(@RequestBody @Validated Category category){
         categoryService.add(category);
         return Result.success();
+    }
+
+    @GetMapping
+    public Result<List <Category>> list(){
+        List<Category> cs=categoryService.list();
+        return  Result.success(cs);
     }
 }

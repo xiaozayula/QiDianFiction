@@ -2,6 +2,8 @@ package com.xiaoyu.service;
 
 import com.xiaoyu.pojo.Category;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -12,4 +14,7 @@ import com.xiaoyu.pojo.Category;
 public interface CategoryService  {
     //新增分类
     void add(Category category);
+
+    //列表查询
+    List<Category> list();
 }
