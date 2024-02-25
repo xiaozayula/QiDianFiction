@@ -2,14 +2,16 @@ package com.xiaoyu.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 public class Category {
+    @NotNull//不能不传
     private Integer id;// 主键ID
-    @NotEmpty
+    @NotEmpty//不能不传且不能为空
     private String categoryName;// 分类名称
     @NotEmpty
     private String categoryAlias;// 分类别名
