@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.*;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -24,4 +26,6 @@ public interface ArticleMapper {
     @Insert("insert into  article (title,content,cover_img,state,category_id,create_user,create_time,update_time" +
             "values(#{title},#{content},#{coverImg},#{state},#{categoryId},#{createUser},#{createTime},#{updateTime}))")
     void add(Article article);
+
+    List list(Integer userId, Integer categoryId, String state);
 }
