@@ -19,4 +19,8 @@ public interface ArticleService {
 
     //根据id查询文章的星系
     Article findById(Integer id);
+    //更新文章
+    void update(Article article);
+    //删除文章
+    void deleteById(Integer id);
 }

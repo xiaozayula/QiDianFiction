@@ -24,7 +24,7 @@ public interface CategoryMapper  {
     List<Category> list(Integer userId);
 
     //根据id查询
-    @Select("select *from Category where id=#{id}")
+    @Select("select *from category where id=#{id}")
     Category findById(Integer id);
 
     //更新
