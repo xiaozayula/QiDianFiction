@@ -41,7 +41,7 @@ public class ArticleController {
     }
 
     @GetMapping("/detail")
-    public  Result<Article> detail(Integer id){
+    public  Result<Article> detail(@RequestParam Integer id){
         Article a=articleService.findById(id);
         return  Result.success(a);
     }
@@ -51,7 +51,7 @@ public class ArticleController {
         return   Result.success();
     }
     @DeleteMapping
-    public Result delete(Integer id){
+    public Result delete(@RequestParam Integer id){
         articleService.deleteById(id);
         return Result.success();
     }

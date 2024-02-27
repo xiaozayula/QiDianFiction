@@ -44,7 +44,7 @@ public class CategoryController {
     }
 
     @DeleteMapping
-    public Result delete(Integer id){
+    public Result delete(@RequestParam Integer id){
         categoryService.deleteById(id);
         return Result.success();
     }
