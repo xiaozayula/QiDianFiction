@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xiaoyu.mapper.ArticleMapperticle">
+<mapper namespace="com.xiaoyu.mapper.ArticleMapper">
     <!--动态sql-->
     <select id="list" resultType="com.xiaoyu.pojo.Article">
         slect*from article
