@@ -24,12 +24,12 @@ import java.util.Map;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
-    @PutMapping
+    @PostMapping
     public Result add(@RequestBody@Validated Article article){
         articleService.add(article);
         return  Result.success();
     }
-    @GetMapping
+    @GetMapping("/list")
     public Result<PageBean<Article>> list(
             Integer pageNum,
             Integer pageSize,

@@ -5,9 +5,9 @@
 <mapper namespace="com.xiaoyu.mapper.ArticleMapper">
     <!--动态sql-->
     <select id="list" resultType="com.xiaoyu.pojo.Article">
-        slect*from article
+         select* from article
              <where>
-                 <if test="category！=null">
+                 <if test="categoryId！=null">
                      category_id=#{categoryId}
                  </if>
                  <if test="state!=null">

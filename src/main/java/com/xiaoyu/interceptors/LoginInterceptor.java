@@ -26,7 +26,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         // 验证token
         try {
             Map<String, Object> claims = JwtUtil.parseToken(token);
-            System.out.println("222");
+
             // 把业务数据存储到ThreadLocal
             ThreadLocalUtil.set(claims);
             // 放行

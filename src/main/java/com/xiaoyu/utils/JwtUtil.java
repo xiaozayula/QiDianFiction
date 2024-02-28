@@ -18,7 +18,7 @@ public class JwtUtil {
 
     // 接收token,验证token,并返回业务数据
     public static Map<String, Object> parseToken(String token) {
-        System.out.println("1122");
+
         return JWT.require(Algorithm.HMAC256(KEY)).build().verify(token).getClaims().get("claims").asMap();
     }
 
